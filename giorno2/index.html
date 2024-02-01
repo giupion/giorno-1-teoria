@@ -1,0 +1,26 @@
+<!DOCTYPE html><!--dichiarazione tipo documento html-->
+<html lang="en"> <!--dichiarazione lingua inglee pagina-->
+<head><!--continee informazioni metalink e fogli di stile-->
+    <meta charset="UTF-8"><!--specifica set di caratteri-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--impostazioni dispositivi mobili adatta larghezza dispositivo-->
+    <title>Registrazione</title><!--titolo pagina scheda-->
+
+</head>
+<body><!--contenuto pagina-->
+    <h1>Registrazione</h1>
+    <form action="gestione.php" method="post"><!--indica pagina di destinazione dei dati del form e mthod impostato per inviare dati in modo sicuro-->
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required><!--campo di input di tipo testo per username id username nome username con attributo required che impone rimepimento del campo-->
+<!--attributo for della label associa etichetta a un campo di input specifico prende come valore l'id username, l'associazione consente all'utente di cliccare sull'etichetta e attivare il campo di iput corrispndente
+se clicchi su username label si attiva input e puoi digitare-->
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="submit">Registrati</button> <!--form raccoglie ingo utentoe e invia dati alla pagina gestione php  quando clicca su registrati, la pagina phpgestione gestirà in seguito i dati ricevuti dal form-->
+    </form>
+</body>
+</html>
