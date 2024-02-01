@@ -17,18 +17,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Crea un array associativo con i dati
     $utente = array(
-        'username' => $username,
+        'username' => $username, //valore diventa john_dohe
         'email' => $email,
         'password' => $password
     );
+
+    //Quindi, se ad esempio $username contenesse la stringa "john_doe", $email contenesse "john.doe@example.com" e $password contenesse "securePassword123", l'array associativo risultante sarebbe:
     //creo un array associativo e a ogni valore del campo associa la variabile che contiene dato della richiesta post
 
     // Salva l'array nella variabile di sessione
     $_SESSION['utente'] = $utente;
+    //viene utilizzato per salvare array precedente nella variabile di sessione cosi globalmente i dati sono salvati in piu pagine
+    //session superglobale che conserva dati in piu pagine finche sessione chiusa o discrtutta
+    //la chiave utente posso scegliere qualsiasi eh pure pippo è la chiave e il valore è $utente, alla fine è un array associativo pippo
+    //per accedere in un altra pagina o scrip a questo array utente basta che scrivo $utente=$_SESSION['utente'] e lo richiamo
 
     // Redirect alla pagina principale
-    header("Location: index.php");
-    exit;
+    header("Location: index.php");// come window location alla fine salvato l'array con dati in session disponibile a livello glovbale faccio na cosa ovvero mi sposto su index php.
+    //location specifica l'url
+    //exit usato per terminare esecuzione script
+    exit;//questo viene esguito solo se la richiesta è post per stare piu tranquilli, ma cmq l'indirizzamento ti porta sempre a index.php
 } else {
     // Se la richiesta non è di tipo POST, redirect alla pagina principale
     header("Location: index.php");
