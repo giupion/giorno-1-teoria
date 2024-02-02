@@ -1,15 +1,35 @@
 <?php
 session_start();
 
-// Controlla se l'utente è loggato
+// Controlla se l'utente è già loggato
 if (isset($_SESSION['user'])) {
+    // Se l'utente è già loggato, reindirizza alla pagina principale
     header('Location: index.php');
     exit();
 }
 
-// Il tuo codice di verifica del login va qui
+// Processa il form di login quando viene inviato
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // In questa sezione dovresti implementare la logica per verificare le credenziali dell'utente
+    // Puoi fare una query al tuo database o utilizzare un sistema di autenticazione esterno
 
-// Se l'utente non è loggato, mostra il modulo di login
+    // Esempio: verifica se l'utente è "admin" con password "password"
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    if ($username === 'admin' && $password === 'password') {
+        // Autenticazione riuscita, imposta la variabile di sessione per l'utente
+        $_SESSION['user'] = $username;
+
+        // Reindirizza alla pagina principale
+        header('Location: index.php');
+        exit();
+    } else {
+        // Se l'autenticazione fallisce, mostra un messaggio di errore
+        $errorMessage = 'Credenziali non valide. Riprova.';
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -21,37 +41,30 @@ if (isset($_SESSION['user'])) {
     <!-- Includi il tuo CSS e il link a Bootstrap qui -->
 </head>
 <body>
-    <!-- Modulo di login -->
+    <!-- Contenuto del form di login -->
     <div class="container mt-5">
         <h2>Login</h2>
-        <form method="post" action="login.php">
-            <!-- I tuoi campi del modulo di login vanno qui -->
-            <div class="row g-3">
-                <div class="col-sm">
-                    <input type="text" class="form-control" placeholder="Firstname..." name="firstname">
-                </div>
-                <div class="col-sm">
-                    <input type="text" class="form-control" placeholder="Lastname..." name="lastname">
-                </div>
-                <div class="col-sm">
-                    <input type="text" class="form-control" placeholder="City..." name="city">
-                </div>
-                <div class="col-sm">
-                    <input type="tel" class="form-control" placeholder="Phone..." name="phone">
-                </div>
-                <div class="col-sm">
-                    <input type="email" class="form-control" placeholder="Email..." name="email">
-                </div>
-                <div class="col-sm">
-                    <input type="file" class="form-control" placeholder="Image..." name="image">
-                </div>
-                <div class="col-sm">
-                    <button type="submit" class="btn btn-dark">Add Contact</button>
-                </div>
+
+        <?php if (isset($errorMessage)): ?>
+            <div class="alert alert-danger">
+                <?= $errorMessage ?>
             </div>
-            <button type="submit" class="btn btn-primary">Login</button>
+        <?php endif; ?>
+
+        <!-- Form di login -->
+        <form method="post" action="login.php">
+            <div class="mb-3">
+                <label for="username" class="form-label">Nome utente</label>
+                <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            <button type="submit" class="btn btn-primary">Accedi</button>
         </form>
     </div>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- Includi il tuo JavaScript e il link a Bootstrap JS qui -->
 </body>
 </html>

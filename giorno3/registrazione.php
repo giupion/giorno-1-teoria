@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $_SESSION['registered_user'] = $user;
 
         // Redirect dopo la registrazione
-        header('Location: registration_success.php');
+        header('Location: registrazione.php');
         exit();
     }
 }
@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <?php endif; ?>
 
         <!-- Form di registrazione -->
-        <form method="post" action="register.php">
+        <form method="post" action="registrazione.php">
             <div class="mb-3">
                 <label for="firstname" class="form-label">Nome</label>
                 <input type="text" class="form-control" id="firstname" name="firstname">
