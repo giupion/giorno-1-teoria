@@ -26,9 +26,32 @@ if (isset($_SESSION['user'])) {
         <h2>Login</h2>
         <form method="post" action="login.php">
             <!-- I tuoi campi del modulo di login vanno qui -->
+            <div class="row g-3">
+                <div class="col-sm">
+                    <input type="text" class="form-control" placeholder="Firstname..." name="firstname">
+                </div>
+                <div class="col-sm">
+                    <input type="text" class="form-control" placeholder="Lastname..." name="lastname">
+                </div>
+                <div class="col-sm">
+                    <input type="text" class="form-control" placeholder="City..." name="city">
+                </div>
+                <div class="col-sm">
+                    <input type="tel" class="form-control" placeholder="Phone..." name="phone">
+                </div>
+                <div class="col-sm">
+                    <input type="email" class="form-control" placeholder="Email..." name="email">
+                </div>
+                <div class="col-sm">
+                    <input type="file" class="form-control" placeholder="Image..." name="image">
+                </div>
+                <div class="col-sm">
+                    <button type="submit" class="btn btn-dark">Add Contact</button>
+                </div>
+            </div>
             <button type="submit" class="btn btn-primary">Login</button>
         </form>
     </div>
-    <!-- Includi il tuo JavaScript e il link a Bootstrap JS qui -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </body>
 </html>
