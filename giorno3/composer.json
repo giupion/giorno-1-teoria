@@ -1,0 +1,17 @@
+{
+    "name": "composer/giuseppe",
+    "autoload": {
+        "psr-4": {
+            "Composer\\Giuseppe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Giuseppe Sansone",
+            "email": "giuseppesansone144@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.9"
+    }
+}

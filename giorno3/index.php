@@ -1,9 +1,14 @@
 <?php
-include 'connessione.php';
+session_start();
 
-// Esegui la query per ottenere la lista degli utenti
-$query = "SELECT * FROM utenti";
-$result = $conn->query($query);
+// Check if the user is logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+    exit();
+}
+
+// Display all registered accounts
+// Your code to fetch and display user accounts goes here
 ?>
 
 <!DOCTYPE html>
@@ -11,32 +16,32 @@ $result = $conn->query($query);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestione Utenti</title>
+    <title>Registered Accounts</title>
+    
 </head>
 <body>
-    <h1>Lista Utenti</h1>
+    <!-- Navbar with links to login and registration -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">Your App Name</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.php">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="register.php">Register</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Azioni</th>
-        </tr>
-
-        <?php
-        while ($row = $result->fetch_assoc()) {
-            echo "<tr>";
-            echo "<td>{$row['id']}</td>";
-            echo "<td>{$row['nome']}</td>";
-            echo "<td>{$row['email']}</td>";
-            echo "<td><a href='dettaglio.php?id={$row['id']}'>Dettaglio</a> | <a href='modifica.php?id={$row['id']}'>Modifica</a> | <a href='elimina.php?id={$row['id']}'>Elimina</a></td>";
-            echo "</tr>";
-        }
-        ?>
-    </table>
-
-    <br>
-    <a href="inserisci.php">Inserisci Nuovo Utente</a>
+    <!-- Content to display registered accounts -->
+    <div class="container mt-5">
+        <h2>Registered Accounts</h2>
+        <!-- Display user accounts here -->
+    </div>
+    
 </body>
 </html>
