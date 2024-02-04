@@ -1,7 +1,7 @@
 <?php //ha salvato il contenuto in sessione da gestione?
 //vedo cosa ce in session
 session_start();
-print_r($_SESSION); //prendo da tutte le richieste dal client
+//print_r($_SESSION); //prendo da tutte le richieste dal client
 
 //$contacts=$_SESSION['contacts'];
 //vai a leggere in sessione una variabile contacts
@@ -70,6 +70,7 @@ session_write_close();
       <th scope="col">Lastname</th>
       <th scope="col">city</th>
       <th scope="col">cell</th>
+      <th scope="col">image</th>
     </tr>
   </thead>
   <tbody>
@@ -81,9 +82,11 @@ session_write_close();
     <tr>
       <th scope="row">-</th>
       <td><?=$contact['Firstname']?></td>
+      
       <td><?=$contact['Lastname']?></td>
       <td><?=$contact['città']?></td>
       <td><?=$contact['cell']?></td>
+      <td><img src=<?= $contact['image'] ?> width="50" ></td>
     </tr>
   <?php }?>
   
