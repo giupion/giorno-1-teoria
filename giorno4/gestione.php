@@ -5,19 +5,23 @@
 //con request prendo tutto
 session_start();
 //print_r($_REQUEST); //prendo da tutte le richieste dal client
-
+//se esite array conctacts all'nizio sessione portrebbe non esistere o dopo cancellazione archivio
 $contacts=isset($_SESSION['contacts']) ?  $_SESSION['contacts']:[];
 $target_dir="uploads/";
-
+//cartella destinazione salvare immafini caricate
 
 if(!empty($_FILES['image'])) //controllo che il file non sia vuot
 {if($_FILES['image']['type']==='image/png' ||$_FILES['image']['type']==='image/jpg'){//controlo che il tipo di file sia png //vedo se nella variabile temporanea è stato caricato qualcosa se non c'e stato un errore
     if($_FILES['image']['size']<400000){ //piu piccolo di 400 kb
 if(is_uploaded_file($_FILES['image']["tmp_name"])&&$_FILES['image']['error']===UPLOAD_ERR_OK){
 if(move_uploaded_file($_FILES["image"]["tmp_name"],$target_dir.$_REQUEST['firstname'].'-'.$_REQUEST['lastname'])){
-//vado a controllare se nella variali
+//vado a controllare se nella variali is uploaded file verifica caricamento form e invioe cne non ci siano errori
 //se tutto ok lo sposto a una variabile uploads da variabile temporanesa,
+//Questa condizione controlla se il file è stato caricato tramite un form (is_uploaded_file) e se non ci sono errori (UPLOAD_ERR_OK). Questa è una precauzione per assicurarsi che il file sia stato caricato con successo e non ci siano problemi.
 echo'caricamento avvenuto con successo';
+//"tmp_name": Questo è il sottotipo di $_FILES["image"] che contiene il percorso temporaneo del file sul server. Prima che tu decida di spostare o rinominare il file, esso si trova in questa posizione temporanea.
+//tmp name percorso temporaneo da destianzione temporanea a permantente ocn dir request
+//dopo tutti questu controlo li sposta su target dir con nome firstname e cognome lastname dalla richiesta quell oche abbimao digiatato
 }
 else{echo 'errore';}
 
