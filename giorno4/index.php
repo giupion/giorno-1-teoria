@@ -52,7 +52,7 @@ session_write_close();
 
             <div class="mb-3">
                 <label  class="form-label">Immagine</label>
-                <input type="file" class="form-control" placeholder="...immagine" name="immagine">
+                <input type="file" class="form-control" placeholder="...image" name="image">
             </div>
           
             <button type="submit" class="btn btn-primary">add contact</button>

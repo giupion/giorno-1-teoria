@@ -14,6 +14,30 @@ $contact=['Firstname'=>$_REQUEST['firstname'], //mettimi il contenuto dell'array
 'città'=>$_REQUEST['città'],
 'cell'=>$_REQUEST['telefono'],];
 
+
+//var_dump($_FILES['image']);
+
+//inizializzo array
+$contacts=isset($_session['contacts'])? $_SESSION['contacts']:[];
+$target_dir="uploads/";
+//controllo se presente file
+
+if(!empty($_FILES['image'])) //controllo che il file non sia vuot
+{if($file_type==='image/png' || $file_type==='image/jng'){//controlo che il tipo di file sia png //vedo se nella variabile temporanea è stato caricato qualcosa se non c'e stato un errore
+    if($file_size<400000){ //piu piccolo di 400 kb
+if(is_uploaded_file($_FILES['image']["tmp_name"])&&$_FILES['image']['error']===UPLOAD_ERR_OK){
+if(move_uploaded_file($_FILES["image"]["tmp_name"],$target_dir.$_REQUEST['firstname'].'-'.$_REQUEST['lastname'])){
+//vado a controllare se nella variali
+//se tutto ok lo sposto a una variabile uploads da variabile temporanesa,
+echo'caricamento avvenuto con successo';
+}
+else{echo 'errore';}
+
+}
+    }else{'file size troppo grande';}
+}else{echo 'filetype non supportato';}}
+
+
 //array dentro seessione
 //salvo array in sessione
 
