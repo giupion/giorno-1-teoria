@@ -10,12 +10,18 @@ $contacts=isset($_SESSION['contacts']) ?  $_SESSION['contacts']:[];
 $target_dir="uploads/";
 //cartella destinazione salvare immafini caricate
 
+$image=$target_dir.'avatar.png';
+
+
+
 if(!empty($_FILES['image'])) //controllo che il file non sia vuot
 {if($_FILES['image']['type']==='image/png' ||$_FILES['image']['type']==='image/jpg'){//controlo che il tipo di file sia png //vedo se nella variabile temporanea è stato caricato qualcosa se non c'e stato un errore
     if($_FILES['image']['size']<400000){ //piu piccolo di 400 kb
 if(is_uploaded_file($_FILES['image']["tmp_name"])&&$_FILES['image']['error']===UPLOAD_ERR_OK){
 if(move_uploaded_file($_FILES["image"]["tmp_name"],$target_dir.$_REQUEST['firstname'].'-'.$_REQUEST['lastname'])){
-//vado a controllare se nella variali is uploaded file verifica caricamento form e invioe cne non ci siano errori
+
+    $image=$target_dir.$_REQUEST['firstname'].'-'.$_REQUEST['lastname'];
+    //vado a controllare se nella variali is uploaded file verifica caricamento form e invioe cne non ci siano errori
 //se tutto ok lo sposto a una variabile uploads da variabile temporanesa,
 //Questa condizione controlla se il file è stato caricato tramite un form (is_uploaded_file) e se non ci sono errori (UPLOAD_ERR_OK). Questa è una precauzione per assicurarsi che il file sia stato caricato con successo e non ci siano problemi.
 echo'caricamento avvenuto con successo';

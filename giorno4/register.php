@@ -30,8 +30,32 @@ session_write_close();
 </head>
 
 <body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="login.php">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="register.php">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div class="container">  <!--enctype serve a caricare immagine-->
-        <form method="post" action="gestione.php" enctype="multipart/form-data">
+        <form method="post" action="controller.php" enctype="multipart/form-data">
             <div class="mb-3">
                 <label  class="form-label">name</label>
                 <input type="text" class="form-control" placeholder="...firstname" name="firstname">
@@ -47,12 +71,21 @@ session_write_close();
             </div>
             <div class="mb-3">
                 <label  class="form-label">cell</label>
-                <input type="text" class="form-control" placeholder="...Telefono" name="telefono">
+                <input type="tel" class="form-control" placeholder="...Telefono" name="telefono">
             </div>
 
             <div class="mb-3">
                 <label  class="form-label">Immagine</label>
                 <input type="file" class="form-control" placeholder="...image" name="image">
+            </div>
+            <div class="mb-3">
+                <label  class="form-label">e-mail</label>
+                <input type="email" class="form-control" placeholder="...email" name="email">
+            </div>
+
+            <div class="mb-3">
+                <label  for="exampleInputPassword1" class="form-label">password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="...password" name="password">
             </div>
           
             <button type="submit" class="btn btn-primary">add contact</button>
