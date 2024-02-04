@@ -67,5 +67,9 @@ session_write_close();
 
 header('Location:http://localhost/giorno-1-teoria/giorno4/')
 
+//sanitize toglie i caratteri non consentiti email che ne so !
+//validate ti dice se è di qiel formato o meno con true e false..tipo manca http, per l'url false
+
+//perche devi validare lato server...quindi si fa n'altro controllo lato server per sicurezza
 
 ?>
