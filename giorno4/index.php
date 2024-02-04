@@ -30,37 +30,9 @@ session_write_close();
 </head>
 
 <body>
-    <div class="container">  <!--enctype serve a caricare immagine-->
-        <form method="post" action="gestione.php" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label  class="form-label">name</label>
-                <input type="text" class="form-control" placeholder="...firstname" name="firstname">
-               
-            </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">lastname</label>
-                <input type="text" class="form-control" placeholder="...lastname" name="lastname">
-            </div>
-            <div class="mb-3">
-                <label class="form-label">città</label>
-                <input type="text" class="form-control" placeholder="...Città" name="città">
-            </div>
-            <div class="mb-3">
-                <label  class="form-label">cell</label>
-                <input type="text" class="form-control" placeholder="...Telefono" name="telefono">
-            </div>
-
-            <div class="mb-3">
-                <label  class="form-label">Immagine</label>
-                <input type="file" class="form-control" placeholder="...image" name="image">
-            </div>
-          
-            <button type="submit" class="btn btn-primary">add contact</button>
-        </form>
-
-
-    </div>
+    
 </hr>
+<h1 class="text-center">rubrica app</h1>
 <div class="my-3">
 <table class="table">
   <thead>
@@ -89,12 +61,17 @@ session_write_close();
       <td><img src=<?= $contact['image'] ?> width="50" ></td>
     </tr>
   <?php }?>
+
+
+  
   
   </tbody>
 </table>
 </div>
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
