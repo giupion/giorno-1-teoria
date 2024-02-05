@@ -150,5 +150,14 @@ header('Location:http://localhost/giorno-1-teoria/giorno4/')
 //validate ti dice se è di qiel formato o meno con true e false..tipo manca http, per l'url false
 
 //perche devi validare lato server...quindi si fa n'altro controllo lato server per sicurezza
-
+//validare e pulire firstname
+//htmlspecialchars caratteri speiciali in html per evitare attacchi xss inserendo javascritp dannoso
+//trim togliere spazi banchi inizio e fine 
+//strlen dopo pulizia e rimozione spazio maggiore 2 caratteri
+//se strlen è vera firstname impostato con valore pulit o e trimmato 
+//lo script si interrompe se se non ci sono questi requisiti di lunghezza
+//quindi < < ecc li mette inhtml &amp altrimenti sarebbe un simbolo e chiunque ti butto all'aria un sito ti mette codice js e te lo rovina
+//FILTER_SANITIZE_EMAIL cosa fa
 ?>
+
+
